@@ -25,7 +25,7 @@ module.exports = {
     })
   ],
   resolve: {
-    extensions: ['', '.js'],
+    extensions: ['', '.js', '.css'],
     alias: {
       'styles': __dirname + '/src/styles',
       'components': __dirname + '/src/components/',
@@ -40,6 +40,10 @@ module.exports = {
       test: /\.js$/,
       loaders: ['babel-loader'],
       exclude: /node_modules/
+    },
+    {
+      test: /\.css$/,
+      loaders: ['style-loader!css-loader']
     }]
   }
 };

@@ -2,7 +2,9 @@ import _ from 'lodash';
 import React from 'react';
 import { SingularNameInput, PluralizedNameOutput } from '.';
 
-require('../styles/main.css');
+if (process.env.BROWSER) {
+  require('../styles/main.css');
+}
 
 class Main extends React.Component {
   constructor(props, context) {

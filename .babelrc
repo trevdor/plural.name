@@ -1,21 +1,10 @@
 {
-	"stage": 0,
-	"loose": "all",
 	"env": {
-		"development": {
-			"plugins": ["react-transform"],
-			"extra": {
-				"react-transform": {
-					"transforms": [{
-						"transform": "react-transform-hmr",
-						"imports": ["react"],
-						"locals": ["module"]
-					}, {
-						"transform": "react-transform-catch-errors",
-						"imports": ["react", "redbox-react"]
-					}]
-				}
-			}
-		}
-	}
+    "development": {
+			"presets": ["es2015", "react"]
+    },
+    "production": {
+			"presets": ["es2015", "react"]
+    }
+  }
 }
