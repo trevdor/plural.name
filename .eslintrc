@@ -1,0 +1,25 @@
+{
+  "parser": "babel-eslint",
+
+  "ecmaFeatures": {
+    "modules": true,
+    "jsx": true
+  },
+
+  "rules": {
+    "curly": 2,
+    "eqeqeq": 2,
+    "new-cap": 2,
+    "no-caller": 2,
+    "no-empty": 2,
+    "no-new": 2,
+    /*"no-undef": 2,*/
+    /*"no-used-vars": 2,*/
+    "comma-dangle": [2, "never"],
+    "no-cond-assign": 2,
+    /*"strict": true,*/
+    /*"expr": true,*/
+    "no-use-before-define": 2,
+    "quotes": [2, "single"]
+  }
+}
