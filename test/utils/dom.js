@@ -6,9 +6,6 @@ global.document = jsdom('<!doctype html><html><body></body></html>');
 global.window = document.defaultView;
 global.navigator = global.window.navigator;
 
-// take all properties of the window object and also attach it to the
-// mocha global object
-propagateToGlobal(window);
 
 // from mocha-jsdom https://github.com/rstacruz/mocha-jsdom/blob/master/index.js#L80
 function propagateToGlobal(window) {
@@ -20,3 +17,7 @@ function propagateToGlobal(window) {
     global[key] = window[key];
   }
 }
+
+// take all properties of the window object and also attach it to the
+// mocha global object
+propagateToGlobal(window);
