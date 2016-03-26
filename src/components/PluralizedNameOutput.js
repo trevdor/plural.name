@@ -31,10 +31,10 @@ class PluralizedNameOutput extends React.Component {
     var lastLetter = trimmedName.charAt(trimmedName.length - 1);
     var lastTwoLetters = trimmedName.substring(trimmedName.length - 2);
 
-    if (_.contains(this.addEs, lastTwoLetters) || _.contains(this.addEs, lastLetter)) {
+    if (_.includes(this.addEs, lastTwoLetters) || _.includes(this.addEs, lastLetter)) {
       pluralized = trimmedName + 'es';
     }
-    else if (_.contains(this.addS, lastLetter)) {
+    else if (_.includes(this.addS, lastLetter)) {
       pluralized = trimmedName + 's';
     }
 
