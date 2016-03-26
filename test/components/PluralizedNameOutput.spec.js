@@ -4,48 +4,43 @@ import { PluralizedNameOutput } from '../../src/components';
 import ReactTestUtils from 'react-addons-test-utils';
 import sinon, { stub } from 'sinon';
 
-function renderHeading(name) {
+function renderPluralized(name) {
   const component = ReactTestUtils.renderIntoDocument(<PluralizedNameOutput name={ name } />);
-  return ReactTestUtils.findRenderedDOMComponentWithTag(component, 'h1');
+  return ReactTestUtils.findRenderedDOMComponentWithClass(component, 'pluralized');
 }
 
 describe('PluralizedNameOutput component', () => {
-  let heading;
-
-  it('renders an h1', () => {
-    heading = renderHeading('Singular');
-    expect(heading).to.exist;
-  });
+  let plural;
 
   describe('pluralization', () => {
     it('handles Farlow', () => {
-      heading = renderHeading('Farlow');
-      expect(heading.innerHTML).to.equal('Farlows');
+      plural = renderPluralized('Farlow');
+      expect(plural.innerHTML).to.equal('Farlows');
     });
 
     it('handles Tubbs', () => {
-      heading = renderHeading('Tubbs');
-      expect(heading.innerHTML).to.equal('Tubbses');
+      plural = renderPluralized('Tubbs');
+      expect(plural.innerHTML).to.equal('Tubbses');
     });
 
     it('handles Murphy', () => {
-      heading = renderHeading('Murphy');
-      expect(heading.innerHTML).to.equal('Murphys');
+      plural = renderPluralized('Murphy');
+      expect(plural.innerHTML).to.equal('Murphys');
     });
 
     it('handles Simmons', () => {
-      heading = renderHeading('Simmons');
-      expect(heading.innerHTML).to.equal('Simmonses');
+      plural = renderPluralized('Simmons');
+      expect(plural.innerHTML).to.equal('Simmonses');
     });
 
     it('handles Alvarez', () => {
-      heading = renderHeading('Alvarez');
-      expect(heading.innerHTML).to.equal('Alvarezes');
+      plural = renderPluralized('Alvarez');
+      expect(plural.innerHTML).to.equal('Alvarezes');
     });
 
     it('handles Ash', () => {
-      heading = renderHeading('Ash');
-      expect(heading.innerHTML).to.equal('Ashes');
+      plural = renderPluralized('Ash');
+      expect(plural.innerHTML).to.equal('Ashes');
     });
   });
 });

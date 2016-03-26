@@ -1,4 +1,6 @@
 /* eslint-disable no-var */
+'use strict';
+
 var path = require('path');
 var webpack = require('webpack');
 
@@ -21,7 +23,6 @@ module.exports = {
     })
   ],
   resolve: {
-    extensions: ['', '.js', '.css'],
     alias: {
       'styles': __dirname + '/src/styles',
       'components': __dirname + '/src/components/',

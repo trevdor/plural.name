@@ -2,3 +2,6 @@
 --reporter nyan
 --ui tdd
 --check-leaks
+
+--require test/babelhook
+--require test/css-null-compiler

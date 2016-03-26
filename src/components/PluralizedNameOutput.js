@@ -15,7 +15,7 @@ class PluralizedNameOutput extends React.Component {
   render() {
     return (
       <div>
-        <h1 id="pluralized">{ this.pluralize(this.props.name) }</h1>
+        <h1>One { this.props.name }, many <span className="pluralized">{ this.pluralize(this.props.name) }</span>.</h1>
       </div>
     );
   }
