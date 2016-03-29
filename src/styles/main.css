@@ -5,21 +5,3 @@
   /* bring your own prefixes */
   transform: translate(-50%, -50%);
 }
-
-h1 {
-  text-align: 'center';
-}
-
-h1#title {
-  color: '#83c9fa';
-}
-
-input[type="text"] {
-  padding: 10px;
-  border: solid 5px #aad6f6;
-  transition: border 0.3s;
-}
-input[type="text"]:focus,
-input[type="text"].focus {
-  border: solid 5px #83c9fa;
-}

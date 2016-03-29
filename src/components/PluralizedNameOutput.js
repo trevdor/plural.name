@@ -13,14 +13,18 @@ class PluralizedNameOutput extends React.Component {
   }
 
   render() {
+    if (!this.props.name) {
+      return <div id="pluralExample" />;
+    }
+
     return (
-      <div>
-        <h1>One { this.props.name }, many <span className="pluralized">{ this.pluralize(this.props.name) }</span>.</h1>
+      <div id="pluralExample">
+        <h1 id="output">The plural is <span className="pluralized">{ this._pluralize(this.props.name) }</span></h1>
       </div>
     );
   }
 
-  pluralize(name) {
+  _pluralize(name) {
     var trimmedName = name.trim();
     var pluralized = trimmedName;
 

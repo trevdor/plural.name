@@ -4,13 +4,28 @@ import { PluralizedNameOutput } from '../../src/components';
 import ReactTestUtils from 'react-addons-test-utils';
 import sinon, { stub } from 'sinon';
 
+function shallowRenderPluralized(name) {
+  const shallowRenderer = ReactTestUtils.createRenderer();
+  shallowRenderer.render(<PluralizedNameOutput name={ name } />);
+  return shallowRenderer.getRenderOutput();
+}
+
 function renderPluralized(name) {
   const component = ReactTestUtils.renderIntoDocument(<PluralizedNameOutput name={ name } />);
   return ReactTestUtils.findRenderedDOMComponentWithClass(component, 'pluralized');
 }
 
-describe('PluralizedNameOutput component', () => {
+describe('PluralizedNameOutput', () => {
   let plural;
+
+  describe('when empty', () => {
+    it('renders an empty div', () => {
+      const output = shallowRenderPluralized('');
+
+      expect(output.type).to.equal('div');
+      expect(output.props.name).to.be.undefined;
+    });
+  });
 
   describe('pluralization', () => {
     it('handles Farlow', () => {
