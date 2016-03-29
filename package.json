@@ -8,12 +8,8 @@
     "lint": "eslint src test",
     "test": "NODE_ENV=production mocha --recursive",
     "test:watch": "npm test -- --watch",
-    "check": "npm run lint && npm run test  && flow check ",
-    "build": "webpack src/index.js --config webpack.config.production.js",
-    "preversion": "npm run clean && npm run check",
-    "version": "npm run build",
-    "postversion": "git push && git push --tags && npm run clean",
-    "prepublish": "npm run clean && npm run build"
+    "check": "npm run lint && npm run test",
+    "build": "webpack src/index.js --config webpack.config.production.js"
   },
   "devEngines": {
     "node": "5.9.1",
@@ -56,6 +52,7 @@
     "eslint-config-airbnb": "^6.2.0",
     "eslint-plugin-react": "^4.2.3",
     "express": "^4.13.4",
+    "extract-text-webpack-plugin": "^1.0.1",
     "history": "^2.0.1",
     "jsdom": "^8.1.0",
     "milligram": "^1.1.0",

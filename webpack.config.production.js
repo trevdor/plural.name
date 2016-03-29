@@ -1,7 +1,6 @@
-/* eslint-disable no-var */
-var path = require('path');
-var webpack = require('webpack');
-
+const path = require('path');
+const webpack = require('webpack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   devtool: 'source-map',
@@ -12,6 +11,7 @@ module.exports = {
     publicPath: '/dist/'
   },
   plugins: [
+    new ExtractTextPlugin('[name].[chunkhash].css'),
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.DefinePlugin({
       '__DEVTOOLS__': false,
@@ -42,7 +42,7 @@ module.exports = {
     },
     {
       test: /\.css$/,
-      loader: 'style!css'
+      loader: ExtractTextPlugin.extract('style', 'css')
     },
     {
       test: /\.scss$/,
