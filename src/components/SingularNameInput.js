@@ -11,8 +11,12 @@ class SingularNameInput extends React.Component {
     };
 
     return (
-      <input { ...inputProps } />
+      <input { ...inputProps } ref={(c) => this._input = c} />
     );
+  }
+
+  componentDidMount() {
+    this._input.focus();
   }
 }
 
