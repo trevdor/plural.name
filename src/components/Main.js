@@ -2,8 +2,8 @@ import _ from 'lodash';
 import React from 'react';
 import { SingularNameInput, PluralizedNameOutput } from '.';
 
-require('../styles/main.css');
-require('../styles/milligram.min.css');
+import 'styles/main.css';
+import 'styles/milligram.min.css';
 
 class Main extends React.Component {
   constructor(props, context) {
