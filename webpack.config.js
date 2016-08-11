@@ -1,22 +1,30 @@
 const path = require('path');
 const webpack = require('webpack');
+const validate = require('webpack-validator');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const pkg = require('./package.json');
 
-module.exports = {
-  devtool: 'cheap-module-eval-source-map',
-  entry: [
-    'webpack-hot-middleware/client',
-    './src/index'
-  ],
+const config = {
+  devtool: 'source-map',
+  entry: {
+    app: './src/index',
+    vendor: Object.keys(pkg.dependencies)
+  },
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: 'bundle.js',
-    publicPath: '/dist/'
+    filename: '[name].[chunkhash].js',
+    publicPath: '/'
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
+    // new webpack.HotModuleReplacementPlugin(),
     new webpack.DefinePlugin({
       '__DEVTOOLS__': true,
-      'process.env': JSON.stringify('development')
+      'process.env': {
+        'NODE_ENV': JSON.stringify('development')
+      }
+    }),
+    new HtmlWebpackPlugin({
+      template: __dirname + '/src/index.tmpl.html'
     })
   ],
   resolve: {
@@ -27,7 +35,8 @@ module.exports = {
       'reducers': __dirname + '/src/reducers/',
       'utils': __dirname + '/src/utils/',
       'actions': __dirname + '/src/actions/'
-    }
+    },
+    extensions: ['', '.js']
   },
   stats: {
     colors: true,
@@ -36,17 +45,14 @@ module.exports = {
   module: {
     loaders: [{
       test: /\.js$/,
-      loaders: ['babel-loader'],
+      loader: 'babel',
       exclude: /node_modules/
     },
     {
       test: /\.css$/,
       loader: 'style!css'
-    },
-    {
-      test: /\.scss$/,
-      loader: 'style-loader!css-loader!autoprefixer-loader?{browsers:["last 2 version", "ie >= 9"]}!sass-loader'
-    }
-  ]
+    }]
   }
 };
+
+module.exports = validate(config);
