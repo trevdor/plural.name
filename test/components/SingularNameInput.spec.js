@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import React from 'react';
-import { SingularNameInput } from '../../src/components';
+import { SingularNameInput } from 'components';
 import ReactTestUtils from 'react-addons-test-utils';
 import sinon, { stub } from 'sinon';
 
@@ -13,7 +13,9 @@ describe('SingularNameInput component', () => {
   let input;
 
   beforeEach(() => {
-    component = ReactTestUtils.renderIntoDocument(<SingularNameInput { ...inputProps } />);
+    component = ReactTestUtils.renderIntoDocument(
+      <SingularNameInput {...inputProps} />
+    );
     input = ReactTestUtils.findRenderedDOMComponentWithTag(component, 'input');
   });
 

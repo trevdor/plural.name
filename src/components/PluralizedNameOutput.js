@@ -1,28 +1,37 @@
-import _ from 'lodash';
 import React from 'react';
+import PropTypes from 'prop-types';
 
-class PluralizedNameOutput extends React.Component {
-  constructor(props, context) {
-    super(props, context);
-    this.addS = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 't', 'u', 'v', 'w', 'y'];
+class PluralizedNameOutput extends React.PureComponent {
+  constructor(props) {
+    super(props);
+    // prettier-ignore
+    this.addS = [
+      'a', 'b', 'c', 'd', 'e', 
+      'f', 'g', 'h', 'i', 'j', 
+      'k', 'l', 'm', 'n', 'o', 
+      'p', 'q', 'r', 't', 'u', 
+      'v', 'w', 'y'
+    ];
     this.addEs = ['s', 'x', 'z', 'ch', 'sh'];
-  }
-
-  shouldComponentUpdate(nextProps, nextState) {
-    return this.props.name !== nextProps.name;
   }
 
   render() {
     const { name } = this.props;
     if (!name) {
-      return <div id="pluralExample"><h3 id="output"></h3></div>;
+      return (
+        <div id="pluralExample">
+          <h3 id="output" />
+        </div>
+      );
     }
 
     const pluralName = this._pluralize(name);
 
     return (
       <div id="pluralExample">
-        <h3 id="output">The plural is <span className="pluralized">{ pluralName }</span></h3>
+        <h3 id="output">
+          The plural is <span className="pluralized">{pluralName}</span>
+        </h3>
       </div>
     );
   }
@@ -38,10 +47,12 @@ class PluralizedNameOutput extends React.Component {
     var lastLetter = trimmedName.charAt(trimmedName.length - 1);
     var lastTwoLetters = trimmedName.substring(trimmedName.length - 2);
 
-    if (_.includes(this.addEs, lastTwoLetters) || _.includes(this.addEs, lastLetter)) {
+    if (
+      this.addEs.includes(lastTwoLetters) ||
+      this.addEs.includes(lastLetter)
+    ) {
       pluralized = trimmedName + 'es';
-    }
-    else if (_.includes(this.addS, lastLetter)) {
+    } else if (this.addS.includes(lastLetter)) {
       pluralized = trimmedName + 's';
     }
 
@@ -50,7 +61,7 @@ class PluralizedNameOutput extends React.Component {
 }
 
 PluralizedNameOutput.propTypes = {
-  name: React.PropTypes.string.isRequired
+  name: PropTypes.string.isRequired
 };
 
 export default PluralizedNameOutput;

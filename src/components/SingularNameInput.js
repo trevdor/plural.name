@@ -1,6 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class SingularNameInput extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this._input = React.createRef();
+  }
 
   render() {
     const inputProps = {
@@ -10,19 +16,17 @@ class SingularNameInput extends React.Component {
       type: 'text'
     };
 
-    return (
-      <input { ...inputProps } ref={(c) => this._input = c} />
-    );
+    return <input {...inputProps} ref={this._input} />;
   }
 
   componentDidMount() {
-    this._input.focus();
+    this._input.current.focus();
   }
 }
 
 SingularNameInput.propTypes = {
-  onChange: React.PropTypes.func.isRequired,
-  placeholder: React.PropTypes.string.isRequired
+  onChange: PropTypes.func.isRequired,
+  placeholder: PropTypes.string.isRequired
 };
 
 export default SingularNameInput;

@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import React from 'react';
 import { SingularNameInput, PluralizedNameOutput } from '.';
 
@@ -6,8 +5,8 @@ import 'styles/main.css';
 import 'styles/milligram.min.css';
 
 class Main extends React.Component {
-  constructor(props, context) {
-    super(props, context);
+  constructor(props) {
+    super(props);
     this.placeHolderText = 'Family Name';
     this.state = {
       name: this.placeHolderText
@@ -17,16 +16,20 @@ class Main extends React.Component {
   }
 
   render() {
-    const name = this.state.name === this.placeHolderText ? '' : this.state.name;
+    const name =
+      this.state.name === this.placeHolderText ? '' : this.state.name;
     const mainStyle = {
       height: window.innerHeight / 2
     };
 
     return (
-      <div className="column column-50 column-offset-25" style={ mainStyle }>
+      <div className="column column-50 column-offset-25" style={mainStyle}>
         <h1>Pluralize a Family Name</h1>
-        <SingularNameInput onChange={ this._onNameChange } placeholder={ this.placeHolderText } />
-        <PluralizedNameOutput name={ name } />
+        <SingularNameInput
+          onChange={this._onNameChange}
+          placeholder={this.placeHolderText}
+        />
+        <PluralizedNameOutput name={name} />
       </div>
     );
   }
