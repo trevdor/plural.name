@@ -1,8 +1,8 @@
 import React from 'react';
 import { SingularNameInput, PluralizedNameOutput } from '.';
 
-import 'styles/main.css';
-import 'styles/milligram.min.css';
+import '../styles/main.css';
+import '../styles/milligram.min.css';
 
 class Main extends React.Component {
   constructor(props) {

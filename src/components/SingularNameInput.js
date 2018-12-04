@@ -4,8 +4,6 @@ import PropTypes from 'prop-types';
 class SingularNameInput extends React.Component {
   constructor(props) {
     super(props);
-
-    this._input = React.createRef();
   }
 
   render() {
@@ -16,11 +14,11 @@ class SingularNameInput extends React.Component {
       type: 'text'
     };
 
-    return <input {...inputProps} ref={this._input} />;
+    return <input {...inputProps} ref={'theInput'} />;
   }
 
   componentDidMount() {
-    this._input.current.focus();
+    this.refs.theInput.focus();
   }
 }
 
