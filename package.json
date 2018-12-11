@@ -1,6 +1,6 @@
 {
   "name": "Pluralize.name",
-  "version": "0.4.13",
+  "version": "0.5.0",
   "description": "Pluralize an English-language family name.",
   "scripts": {
     "start": "node server.js",
@@ -9,8 +9,7 @@
     "test": "NODE_ENV=production mocha --recursive",
     "test:watch": "npm test -- --watch",
     "check": "npm run lint && npm run test",
-    "build": "webpack src/index.js --config webpack.config.production.js",
-    "deploy": "scp dist/* plurl@plural.name:~/plural.name"
+    "build": "parcel src/index.html"
   },
   "repository": {
     "type": "git",
