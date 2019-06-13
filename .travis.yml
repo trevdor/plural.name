@@ -1,5 +1,5 @@
 language: node_js
 node_js:
-  - "stable"
+  - 8.16.0
 
 sudo: false # makes tests faster
