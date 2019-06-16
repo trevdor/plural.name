@@ -55,7 +55,7 @@
     "@babel/preset-env": "^7.4.5",
     "@babel/preset-react": "^7.0.0",
     "@testing-library/react": "8.0.1",
-    "babel-eslint": "9.x",
+    "babel-eslint": "10.x",
     "eslint": "5.x",
     "eslint-config-react-app": "^4.0.1",
     "eslint-plugin-flowtype": "2.x",
