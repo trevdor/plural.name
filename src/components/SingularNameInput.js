@@ -1,25 +1,22 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 
-class SingularNameInput extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+function SingularNameInput({ onChange, placeholder }) {
+  const theInput = useRef(null);
+  useEffect(() => {
+    theInput.current.focus();
+  });
 
-  render() {
-    const inputProps = {
-      id: 'name',
-      onChange: this.props.onChange,
-      placeholder: this.props.placeholder,
-      type: 'text'
-    };
-
-    return <input {...inputProps} ref={'theInput'} />;
-  }
-
-  componentDidMount() {
-    this.refs.theInput.focus();
-  }
+  return (
+    <input
+      aria-label="pluralized name"
+      id="name"
+      onChange={onChange}
+      placeholder={placeholder}
+      type="text"
+      ref={theInput}
+    />
+  );
 }
 
 SingularNameInput.propTypes = {

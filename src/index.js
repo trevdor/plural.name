@@ -1,8 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Main from './components/Main';
+import Pluralizer from './components/Pluralizer';
 
-ReactDOM.render(
-  <Main />,
-  document.getElementById('root')
-);
+ReactDOM.render(<Pluralizer />, document.getElementById('root'));

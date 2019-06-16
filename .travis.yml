@@ -1,4 +1,3 @@
-before_script: yarn
 language: node_js
 node_js:
   - stable
